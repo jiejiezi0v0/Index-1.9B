@@ -47,7 +47,7 @@ rm -f "$log_file"
 set -o pipefail  # 设置这个选项以确保管道中的任何命令失败都会被捕获
 
 #单机
-python -m torch.distributed.launch --nproc_per_node=$NUM_GPUS --nnode=1 ${entrypoint} ${args} "$@" 2>&1 | tee -a "$log_file"
+python -m torch.distributed.run --nproc_per_node=$NUM_GPUS --nnode=1 ${entrypoint} ${args} "$@" 2>&1 | tee -a "$log_file"
 
 #多机
 # python -m torch.distributed.launch ${entrypoint} ${args} "$@" 2>&1 | tee -a "$log_file"
