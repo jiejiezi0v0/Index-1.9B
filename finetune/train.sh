@@ -1,15 +1,15 @@
 export CUBLAS_WORKSPACE_CONFIG=:4096:8
 
-export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=0,1
 # export CUDA_DEVICE_MAX_CONNECTIONS=1
 
 set -ex
 
 LR=1e-4
-NUM_GPUS=1
-TRAIN_PATH=your_data_path
-OUTPUT_DIR=output
-BASE_MODEL_PATH=your_model_path
+NUM_GPUS=2
+TRAIN_PATH=/kaggle/input/lightnovel/source.json
+OUTPUT_DIR=/kaggle/output/
+BASE_MODEL_PATH=/kaggle/output/Index-1.9B
 
 mkdir -p $OUTPUT_DIR
 
