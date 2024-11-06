@@ -9,7 +9,7 @@ LR=1e-4
 NUM_GPUS=2
 TRAIN_PATH=/kaggle/input/lightnovel/source.json
 OUTPUT_DIR=/kaggle/working/adapter
-BASE_MODEL_PATH=./model/Index-1.9B-Chat
+BASE_MODEL_PATH=/model/Index-1.9B-Chat
 
 mkdir -p $OUTPUT_DIR
 
