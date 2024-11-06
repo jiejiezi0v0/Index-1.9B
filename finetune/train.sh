@@ -8,8 +8,8 @@ set -ex
 LR=1e-4
 NUM_GPUS=2
 TRAIN_PATH=/kaggle/input/lightnovel/source.json
-OUTPUT_DIR=/kaggle/output/adapter
-BASE_MODEL_PATH=IndexTeam/Index-1.9B-Chat
+OUTPUT_DIR=/kaggle/working/adapter
+BASE_MODEL_PATH=/kaggle/working/Index-1.9B-Chat
 
 mkdir -p $OUTPUT_DIR
 
