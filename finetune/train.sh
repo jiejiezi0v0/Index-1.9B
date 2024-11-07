@@ -5,7 +5,7 @@ export CUDA_VISIBLE_DEVICES=0,1
 
 set -ex
 
-LR=5e-5
+LR=1.5e-4
 NUM_GPUS=2
 TRAIN_PATH=/kaggle/input/lightnovel/source.json
 OUTPUT_DIR=/kaggle/working/adapter
