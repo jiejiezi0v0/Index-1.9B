@@ -66,6 +66,8 @@ def main():
     df = pd.read_json(data_args.train_data)
     ds = Dataset.from_pandas(df)
 
+    eval_ds =  Dataset.from_pandas(pd.read_json(data_args.eval_data))
+    
     def process_func(example):
         MAX_LENGTH = int(data_args.max_seq_length)
         input_ids, attention_mask, labels = [], [], []
@@ -91,6 +93,7 @@ def main():
         }
 
     train_dataset = ds.map(process_func, remove_columns=ds.column_names)
+    eval_dataset = eval_ds.map(process_func, remove_columns=eval_ds.column_names)
 
     torch_dtype = torch.float16 if training_args.fp16 else torch.bfloat16
     config = AutoConfig.from_pretrained(model_args.model_name_or_path, trust_remote_code=True)
@@ -118,6 +121,7 @@ def main():
         model=model, 
         args=training_args,
         train_dataset=train_dataset,
+        eval_dataset=eval_dataset,
         tokenizer=tokenizer,
         data_collator=data_collator,
     )
