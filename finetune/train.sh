@@ -16,6 +16,7 @@ mkdir -p $OUTPUT_DIR
 entrypoint="finetune.py"
 args="       --model_name_or_path $BASE_MODEL_PATH \
              --train_data $TRAIN_PATH \
+             --eval_data /kaggle/input/lightnovel/eval.json \
              --load_best_model_at_end=True \
              --metric_for_best_model="accuracy" \
              --greater_is_better=True \
