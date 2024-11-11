@@ -10,14 +10,12 @@ NUM_GPUS=2
 TRAIN_PATH=/kaggle/input/lightnovel/train.json
 OUTPUT_DIR=/kaggle/working/adapter
 BASE_MODEL_PATH=model
-EVAL_PATH=/kaggle/input/lightnovel/eval.json
 
 mkdir -p $OUTPUT_DIR
 
 entrypoint="finetune.py"
 args="       --model_name_or_path $BASE_MODEL_PATH \
              --train_data $TRAIN_PATH \
-             --eval_data $EVAL_PATH \
              --load_best_model_at_end=True \
              --metric_for_best_model="accuracy" \
              --greater_is_better=True \
