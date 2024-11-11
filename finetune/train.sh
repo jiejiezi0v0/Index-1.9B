@@ -5,7 +5,7 @@ export CUDA_VISIBLE_DEVICES=0,1
 
 set -ex
 
-LR=1e-4
+LR=5e-5
 NUM_GPUS=2
 TRAIN_PATH=/kaggle/input/lightnovel/train.json
 OUTPUT_DIR=/kaggle/working/adapter
@@ -24,7 +24,7 @@ args="       --model_name_or_path $BASE_MODEL_PATH \
              --lora_rank 32 \
              --lora_alpha 64 \
              --lora_dropout 0.1 \
-             --max_seq_length 1024 \
+             --max_seq_length 2048 \
              --preprocessing_num_workers 1 \
              --per_device_train_batch_size 4 \
              --gradient_accumulation_steps 4 \
