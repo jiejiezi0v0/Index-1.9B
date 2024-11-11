@@ -24,7 +24,7 @@ args="       --model_name_or_path $BASE_MODEL_PATH \
              --lora_rank 32 \
              --lora_alpha 64 \
              --lora_dropout 0.1 \
-             --max_seq_length 2048 \
+             --max_seq_length 1024 \
              --preprocessing_num_workers 1 \
              --per_device_train_batch_size 4 \
              --gradient_accumulation_steps 4 \
