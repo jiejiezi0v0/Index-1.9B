@@ -7,15 +7,17 @@ set -ex
 
 LR=1.5e-4
 NUM_GPUS=2
-TRAIN_PATH=/kaggle/input/lightnovel/source.json
+TRAIN_PATH=/kaggle/input/lightnovel/train.json
 OUTPUT_DIR=/kaggle/working/adapter
 BASE_MODEL_PATH=model
+EVAL_PATH=/kaggle/input/lightnovel/eval.json
 
 mkdir -p $OUTPUT_DIR
 
 entrypoint="finetune.py"
 args="       --model_name_or_path $BASE_MODEL_PATH \
              --train_data $TRAIN_PATH \
+             --eval_data $EVAL_PATH \
              --load_best_model_at_end=True \
              --metric_for_best_model="accuracy" \
              --greater_is_better=True \
@@ -37,6 +39,7 @@ args="       --model_name_or_path $BASE_MODEL_PATH \
              --lr_scheduler_type cosine \
              --num_train_epochs 6 \
              --logging_steps 10 \
+             --eval_steps 10 \
              --evaluation_strategy "step" \
              --save_strategy "steps" \
              --save_steps 250 \
