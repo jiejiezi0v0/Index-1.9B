@@ -37,11 +37,11 @@ args="       --model_name_or_path $BASE_MODEL_PATH \
              --learning_rate $LR \
              --lr_scheduler_type cosine \
              --num_train_epochs 6 \
-             --logging_steps 5 \
-             --eval_steps 30 \
+             --logging_steps 10 \
+             --eval_steps 50 \
              --evaluation_strategy "steps" \
              --save_strategy "steps" \
-             --save_steps 210 \
+             --save_steps 250 \
              --report_to "none" \
              --seed 1234 \
              --bf16 "
