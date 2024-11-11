@@ -16,6 +16,9 @@ mkdir -p $OUTPUT_DIR
 entrypoint="finetune.py"
 args="       --model_name_or_path $BASE_MODEL_PATH \
              --train_data $TRAIN_PATH \
+             --load_best_model_at_end=True \
+             --metric_for_best_model="accuracy" \
+             --greater_is_better=True \
              --output_dir $OUTPUT_DIR \
              --lora_rank 32 \
              --lora_alpha 64 \
@@ -34,7 +37,7 @@ args="       --model_name_or_path $BASE_MODEL_PATH \
              --lr_scheduler_type cosine \
              --num_train_epochs 6 \
              --logging_steps 10 \
-             --evaluation_strategy "no" \
+             --evaluation_strategy "step" \
              --save_strategy "steps" \
              --save_steps 250 \
              --report_to "none" \
